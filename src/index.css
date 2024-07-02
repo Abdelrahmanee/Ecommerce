@@ -1,0 +1,397 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap');
+/* @import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css"; */
+
+:root {
+    --main-color: #0aad0a;
+    --light-color: #f0f3f2;
+    --shadow: rgba(145, 158, 171, .2) 0px 2px 4px -1px, rgba(145, 158, 171, .14) 0px 4px 5px 0px, rgba(145, 158, 171, .12) 0px 1px 10px 0px;
+    --font-family: 'Encode Sans Expanded', sans-serif;
+    --rating-color: #ffc908;
+}
+
+.network {
+    padding: 10px;
+    position: fixed;
+    background-color: var(--main-color);
+    bottom: 20px;
+    left: 20px;
+    box-shadow: var(--shadow);
+    border: 2px var(--main-color) solid;
+    z-index: 99999;
+    text-align: center;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 20px;
+}
+
+.fs-small{
+    font-size: 12px;
+    padding: 1px;
+    background-color: var(--main-color);
+    color: var(--light-color);
+    top: -30% !important;
+    right: 0;
+    border-radius:2px ;
+}
+.btn-main{
+    background-color: var(--main-color) !important;
+    color: var(--light-color) !important;
+    padding: 10px;
+}
+.fa-trash:before {
+    content: "\f1f8";
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--main-color) !important;
+    border-radius: 10px !important;
+    box-shadow: 2px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 2px 15px grey;
+    border-radius: 0px;
+}
+
+.bg-by {
+    color: #3a383f;
+    transition: all 10ms;
+}
+
+.hov:hover {
+    color: #fff !important;
+}
+
+.bg-by:hover {
+    color: #0e0e0f;
+}
+
+.brdr-main {
+    border: 1px var(--main-color) solid;
+}
+
+body {
+    font-family: var(--font-family) !important;
+}
+
+.rating-color {
+    color: var(--rating-color);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.docrate {
+    text-decoration: none;
+    color: black;
+}
+
+a,
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.product:hover {
+    box-shadow: var(--shadow);
+    border: solid 1px var(--main-color);
+}
+
+.cart-area {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+
+
+.product h3 {
+    font-size: 14px;
+    /* Adjust font size for the title */
+    margin-top: 5px;
+}
+
+/* Style the price and star rating */
+.product .d-flex {
+    align-items: center;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.product .rating-color {
+    color: gold;
+    /* Change color for the star rating */
+}
+
+/* .heartIcon {
+    position: absolute;
+    font-size: 30px;
+    right: -10%;
+    top: 5%;
+    z-index: 2;
+    opacity: 0;
+} */
+
+/* .product .heart {
+    transition: right 1s, opacity 1s;
+} */
+heartIcon
+
+
+/* CSS adjustments for responsiveness */
+.product {
+    padding: 15px;
+    /* Add padding to each product item */
+}
+.circle{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid rgb(86, 91, 91);
+
+}
+/* Center the heart icon vertically and horizontally */
+.heartCircle{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid rgb(86, 91, 91);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    right: 10%;
+    top: 5%;
+}
+.heartCircle i{
+    font-size: 22px;
+}
+
+/* Ensure the product image fills the container */
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    /* Add border radius to the product image */
+}
+
+/* Style the product category and title */
+.product .font-sm {
+    font-size: 12px;
+    /* Adjust font size for the category */
+}
+
+
+
+
+
+
+
+/* @media screen and (max-width: 605px) {
+    .heartIcon {
+        position: absolute;
+        font-size: 30px;
+        right: 0%;
+        top: 5%;
+        z-index: 2;
+        opacity: 0;
+    }
+
+    .product .heart {
+        transition: right 1s, opacity 1s;
+    }
+
+    .product:hover .heart {
+        opacity: 1;
+    }
+} */
+
+.product .btn {
+    transition: transform 1s, opacity 1s, top 1s, right 1s;
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.product:hover .btn {
+    opacity: 1;
+    transform: translateY(0%);
+
+}
+
+
+.font-sm {
+    font-size: 14px;
+}
+
+.text-main {
+    color: var(--main-color);
+}
+
+.bg-main {
+    background-color: var(--main-color) !important;
+}
+
+.bg-main-light {
+    background-color: var(--light-color) !important;
+}
+.position-relative {
+    position: relative;
+    text-align: center;
+}
+
+.text-main {
+    display: inline-block; /* Ensure h1 takes only as much width as the text */
+    position: relative;
+}
+/* lines */
+.lines-container {
+    text-align: center; /* Center the lines container */
+
+}
+
+.line-1 {
+    display: block;
+    width: 25%; /* Full width of the container */
+    height: 2px; /* Adjust the height as needed */
+    background-color: var(--main-color); /* Adjust the color as needed */
+    margin: 2px 0; /* Space between lines */
+
+}
+.line-2 {
+    display: block;
+    width: 12.5%; /* Full width of the container */
+    height: 2px; /* Adjust the height as needed */
+    background-color: var(--main-color); /* Adjust the color as needed */
+    margin: 2px 0; /* Space between lines */
+}
+/* Cart */
+
+.cartDiv{
+    width: 22px;
+    height: 20px;
+    background-color: var(--main-color);
+    position: absolute;
+    border-radius: 6px;
+    top: 0;
+    left: 40%;
+    font-size: 14px;
+}
+@media screen and (max-width: 992px){
+    .cartDiv{
+        left: 50%;
+        top: 2%;
+    }
+    .CartCont{
+        margin-top: 10px;
+    }
+    /* .heartIcon_2{
+        top: 83%;
+        font-size: 35px;
+    } */
+    .product:hover  {
+        top: 83%;
+    }
+}
+
+
+/* LoadingSpinner.css */
+
+.form-control:focus {
+    box-shadow: var(--main-color) 3px 2px 5px !important;
+    border: var(--main-color) 1px solid !important;
+}
+
+.loading-spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loading-spinner {
+    border: 4px solid var(--light-color);
+    /* Light grey */
+    border-top: 4px solid var(--main-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+.dropdown-toggle {
+    background-color: transparent;
+    border: 1px solid #0aad0a !important;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    padding: 0;
+    font-size: 15px;
+    position: relative;
+  }
+  
+  .dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0;
+    vertical-align: 0;
+    content: "";
+    border-top: 0.5em solid #0aad0a !important;
+    border-right: 0.5em solid transparent;
+    border-left: 0.5em solid transparent;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  
+  .dropdown-item:focus,
+  .dropdown-item:hover {
+    background-color: #055d0a !important;
+    color: #fff !important;
+  }
+  
+  .dropdown-item {
+    transition: 1s !important;
+    padding: 4px !important;
+  }
+  
+  .dropdown-menu {
+    padding: 3px !important;
+    text-align: center;
+  }
+  
+  .dropdown-menu[data-bs-popper] {
+    left: -124% !important;
+  }

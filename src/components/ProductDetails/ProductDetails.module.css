@@ -1,0 +1,25 @@
+/* ProductDetails.module.css */
+
+.custom-prev-arrow,
+.custom-next-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 16px;
+  z-index: 1;
+  text-align: center;
+}
+
+.custom-prev-arrow {
+  left:-10px;
+}
+
+.custom-next-arrow {
+  right: -10px;
+}
