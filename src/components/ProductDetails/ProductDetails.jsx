@@ -13,9 +13,12 @@ import { WishListContext } from '../../Context/WishListContext'
 const CustomPrevArrow = (props) => {
     const { onClick } = props;
     return (
+        <div className="">
+            
         <button className={`${Style['custom-prev-arrow']}`} onClick={onClick}>
             <span className={Style.customArrowIcon}>&#8592;</span>
         </button>
+        </div>
     );
 };
 
@@ -68,7 +71,7 @@ export default function ProductDetails() {
         autoplaySpeed: 2500,
         responsive: [
             {
-                breakpoint: 1024,
+                breakpoint: 992,
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 3,
@@ -142,7 +145,7 @@ export default function ProductDetails() {
                     <Helmet>
                         <title>{productDetails.title}</title>
                     </Helmet>
-                    <div className="col-md-3 mb-4 ">
+                    <div className="col-lg-3 mb-4 ">
                         <Slider {...settings}>
                             {productDetails?.images?.map((imgSrc) => (
                                 <img key={imgSrc} src={imgSrc} className='cursor-pointer ' />
@@ -150,7 +153,7 @@ export default function ProductDetails() {
                         </Slider>
                     </div>
                     {/* <img src={productDetails.imageCover} alt={productDetails.slug} className='w-100' /> */}
-                    <div className="col-md-9">
+                    <div className="col-lg-9">
                         <h2 className='h5'>{productDetails.title}</h2>
                         <p>{productDetails.description}</p>
                         <h6 className='text-main'>{productDetails.category?.name}</h6>

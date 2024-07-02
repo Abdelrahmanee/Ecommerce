@@ -5,15 +5,18 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: #0aad0a;
   color: #fff;
   border: none;
   outline: none;
   cursor: pointer;
   border-radius: 50%;
-  font-size: 16px;
+  font-size: 20px;
   z-index: 1;
-  text-align: center;
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .custom-prev-arrow {

@@ -424,4 +424,5 @@ a:hover {
     background-color: var(--main-color) !important; /* Green color */
     border-color: var(--main-color) !important; /* Border color */
     color: #fff !important; /* Text color */
+    box-shadow: none;
   }
