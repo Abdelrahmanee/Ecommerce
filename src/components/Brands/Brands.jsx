@@ -2,27 +2,37 @@ import React, { useEffect, useState } from 'react'
 import Style from './Brands.module.css'
 import axios from 'axios'
 import { Helmet } from 'react-helmet'
+import Pagination from '../Pagination/Pagination';
 
 
 export default function Brands() {
 
+    // {Pagination}
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+    const itemsPerPage = 20; // Number of items per page
 
     const baseURL = 'https://ecommerce.routemisr.com'
 
-    let [brands, setBrands] = useState([])
-    let [isLoading, setIsLoading] = useState(false)
-
-    async function getBrands() {
-        setIsLoading(true)
-        const { data } = await axios.get(baseURL + '/api/v1/brands')
-        console.log(data);
-        setBrands(data.data)
-        setIsLoading(false)
-    }
+    const [brands, setBrands] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
-        getBrands()
-    }, [])
+        fetchBrands(currentPage);
+    }, [currentPage]);
+
+    const fetchBrands = async (page) => {
+        try {
+            setIsLoading(true)
+            const { data } = await axios.get(baseURL + `/api/v1/brands/?page=${page}&limit=${itemsPerPage}`);
+            setIsLoading(false)
+            setBrands(data.data);
+            console.log(data);
+            setTotalPages(data.metadata.numberOfPages);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
 
 
     return <><Helmet>
@@ -42,6 +52,12 @@ export default function Brands() {
                         </div>
                     </div>
                 ))}
-            </div>}
+                <div className=" my-4 d-flex justify-content-center align-items-center  ">
+
+                    <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
+                </div>
+
+            </div>
+        }
     </>
 }

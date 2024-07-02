@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Style from './Products.module.css'
 import axios from 'axios'
 import { useQuery } from 'react-query'
@@ -7,33 +7,40 @@ import { Helmet } from 'react-helmet'
 import { CartContext } from '../../Context/CartContext'
 import toast from 'react-hot-toast'
 import { WishListContext } from '../../Context/WishListContext'
+import Pagination from '../Pagination/Pagination'
 
 
 
 export default function Products() {
-    const baseURL = 'https://ecommerce.routemisr.com'
-    function getProducts() {
-        return axios.get(baseURL + '/api/v1/products')
-    }
-    const {wishListCount ,setWishListCount}  = useContext(WishListContext)
+    // {Pagination}
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+    const [products, setProducts] = useState([]);
+    const [isLoading, setIsLoading] = useState(null);
+    const itemsPerPage = 10; // Number of items per page
 
-    const { addToCart , cartCount , setCartCount } = useContext(CartContext)
+
+    const baseURL = 'https://ecommerce.routemisr.com'
+
+    const { wishListCount, setWishListCount } = useContext(WishListContext)
+
+    const { addToCart, cartCount, setCartCount } = useContext(CartContext)
     const { addToWishList } = useContext(WishListContext)
 
     function changeIconColor(id) {
         id.className += "color-red";
-      }
+    }
     async function addProductToCart(productId) {
-        const response = await addToCart(productId);
-        if (response?.data?.status === 'success') {
+        const {data} = await addToCart(productId);
+        if (data?.status === 'success') {
             toast.success("product added successfully", {
 
                 className: "bg-main text-white ",
             })
-            setCartCount(cartCount + 1)
+            setCartCount(data?.numOfCartItems )
         }
         else {
-            toast.error(response?.data?.message || 'Error')
+            toast.error(data?.message || 'Error')
 
         }
     }
@@ -41,18 +48,34 @@ export default function Products() {
     async function addProductToWishList(productId) {
         const { data } = await addToWishList(productId);
         if (data?.status === 'success') {
-            setWishListCount(wishListCount + 1)
+
             toast.success(data.message, {
 
                 className: "bg-main text-white ",
             })
+            setWishListCount(data.data.length)
         }
         else {
             toast.error(data?.message || 'Error')
         }
     }
 
-    const { isError, isFetching, data, isLoading } = useQuery('products', getProducts)
+
+    useEffect(() => {
+        fetchProducts(currentPage);
+    }, [currentPage]);
+
+    const fetchProducts = async (page) => {
+        try {
+            setIsLoading(true)
+            const { data } = await axios.get(baseURL + `/api/v1/products/?page=${page}&limit=${itemsPerPage}`);
+            setIsLoading(false)
+            setProducts(data.data);
+            setTotalPages(data.metadata.numberOfPages);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
     return (
         <>
             <Helmet>
@@ -70,15 +93,15 @@ export default function Products() {
                         <span className="line line-1"></span>
                         <span className="line line-2"></span>
                         <span className="line line-1"></span>
-                    </div> 
+                    </div>
                     <div className="row">
-                        {data?.data?.data.map(prod => (
+                        {products.map(prod => (
 
                             <div className="col-lg-3 col-xl-2 col-md-3 col-sm-6 product position-relative" key={prod.id}>
                                 <div className="heartCircle">
 
                                     <i id="hearIcon"
-                                        onClick={(e) =>{ 
+                                        onClick={(e) => {
                                             addProductToWishList(prod.id)
                                             changeIconColor(e.target)
                                             console.log(e.target);
@@ -104,6 +127,14 @@ export default function Products() {
                             </div>
                         ))}
                     </div>
+
+
+
+                    <div className=" my-4 d-flex justify-content-center align-items-center  ">
+
+                        <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
+                    </div>
+
                 </div>
 
             }

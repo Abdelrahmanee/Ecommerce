@@ -26,20 +26,22 @@
     font-size: 20px;
 }
 
-.fs-small{
+.fs-small {
     font-size: 12px;
     padding: 1px;
     background-color: var(--main-color);
     color: var(--light-color);
     top: -30% !important;
     right: 0;
-    border-radius:2px ;
+    border-radius: 2px;
 }
-.btn-main{
+
+.btn-main {
     background-color: var(--main-color) !important;
     color: var(--light-color) !important;
     padding: 10px;
 }
+
 .fa-trash:before {
     content: "\f1f8";
 }
@@ -142,7 +144,7 @@ a:hover {
 /* .product .heart {
     transition: right 1s, opacity 1s;
 } */
-heartIcon
+/* heartIcon */
 
 
 /* CSS adjustments for responsiveness */
@@ -150,7 +152,8 @@ heartIcon
     padding: 15px;
     /* Add padding to each product item */
 }
-.circle{
+
+.circle {
     height: 25px;
     width: 25px;
     border-radius: 50%;
@@ -162,8 +165,9 @@ heartIcon
     border: 2px solid rgb(86, 91, 91);
 
 }
+
 /* Center the heart icon vertically and horizontally */
-.heartCircle{
+.heartCircle {
     height: 35px;
     width: 35px;
     border-radius: 50%;
@@ -177,7 +181,8 @@ heartIcon
     right: 10%;
     top: 5%;
 }
-.heartCircle i{
+
+.heartCircle i {
     font-size: 22px;
 }
 
@@ -248,39 +253,53 @@ heartIcon
 .bg-main-light {
     background-color: var(--light-color) !important;
 }
+
 .position-relative {
     position: relative;
     text-align: center;
 }
 
 .text-main {
-    display: inline-block; /* Ensure h1 takes only as much width as the text */
+    display: inline-block;
+    /* Ensure h1 takes only as much width as the text */
     position: relative;
 }
+
 /* lines */
 .lines-container {
-    text-align: center; /* Center the lines container */
+    text-align: center;
+    /* Center the lines container */
 
 }
 
 .line-1 {
     display: block;
-    width: 25%; /* Full width of the container */
-    height: 2px; /* Adjust the height as needed */
-    background-color: var(--main-color); /* Adjust the color as needed */
-    margin: 2px 0; /* Space between lines */
+    width: 25%;
+    /* Full width of the container */
+    height: 2px;
+    /* Adjust the height as needed */
+    background-color: var(--main-color);
+    /* Adjust the color as needed */
+    margin: 2px 0;
+    /* Space between lines */
 
 }
+
 .line-2 {
     display: block;
-    width: 12.5%; /* Full width of the container */
-    height: 2px; /* Adjust the height as needed */
-    background-color: var(--main-color); /* Adjust the color as needed */
-    margin: 2px 0; /* Space between lines */
+    width: 12.5%;
+    /* Full width of the container */
+    height: 2px;
+    /* Adjust the height as needed */
+    background-color: var(--main-color);
+    /* Adjust the color as needed */
+    margin: 2px 0;
+    /* Space between lines */
 }
+
 /* Cart */
 
-.cartDiv{
+.cartDiv {
     width: 22px;
     height: 20px;
     background-color: var(--main-color);
@@ -290,19 +309,22 @@ heartIcon
     left: 40%;
     font-size: 14px;
 }
-@media screen and (max-width: 992px){
-    .cartDiv{
+
+@media screen and (max-width: 992px) {
+    .cartDiv {
         left: 50%;
         top: 2%;
     }
-    .CartCont{
+
+    .CartCont {
         margin-top: 10px;
     }
+
     /* .heartIcon_2{
         top: 83%;
         font-size: 35px;
     } */
-    .product:hover  {
+    .product:hover {
         top: 83%;
     }
 }
@@ -359,9 +381,9 @@ heartIcon
     padding: 0;
     font-size: 15px;
     position: relative;
-  }
-  
-  .dropdown-toggle::after {
+}
+
+.dropdown-toggle::after {
     display: inline-block;
     margin-left: 0;
     vertical-align: 0;
@@ -373,25 +395,33 @@ heartIcon
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-  }
-  
-  
-  .dropdown-item:focus,
-  .dropdown-item:hover {
+}
+
+
+.dropdown-item:focus,
+.dropdown-item:hover {
     background-color: #055d0a !important;
     color: #fff !important;
-  }
-  
-  .dropdown-item {
+}
+
+.dropdown-item {
     transition: 1s !important;
     padding: 4px !important;
-  }
-  
-  .dropdown-menu {
+}
+
+.dropdown-menu {
     padding: 3px !important;
     text-align: center;
-  }
-  
-  .dropdown-menu[data-bs-popper] {
+}
+
+.dropdown-menu[data-bs-popper] {
     left: -124% !important;
+}
+
+
+
+.page-item.active .page-link {
+    background-color: var(--main-color) !important; /* Green color */
+    border-color: var(--main-color) !important; /* Border color */
+    color: #fff !important; /* Text color */
   }

@@ -43,11 +43,12 @@ export default function ProductDetails() {
     async function addProductToWishList(productId) {
         const { data } = await addToWishList(productId);
         if (data?.status === 'success') {
-            setWishListCount(wishListCount + 1)
+
             toast.success(data.message, {
+
                 className: "bg-main text-white ",
             })
-
+            setWishListCount(data.data.length)
         }
         else {
             toast.error(data?.message || 'Error')
@@ -94,16 +95,16 @@ export default function ProductDetails() {
     };
 
     async function addProductToCart(productId) {
-        const response = await addToCart(productId);
-        if (response.data.status === 'success') {
-            toast.success(response.data.message, {
+        const { data } = await addToCart(productId);
+        if (data?.status === 'success') {
+            toast.success("product added successfully", {
 
                 className: "bg-main text-white ",
             })
-            setCartCount(cartCount + 1)
+            setCartCount(data?.numOfCartItems)
         }
         else {
-            toast.error(response.data.message)
+            toast.error(data?.message || 'Error')
 
         }
     }
